@@ -1,4 +1,5 @@
-<div id="container">
+<div id="img"></div>
+<div id="content">
     <div id="postfeed">
         <app-displaypost *ngFor="let post of posts" [postData]="post"></app-displaypost>
         <button (click)="onCreatePostClick()" mat-fab color="warn" id="post-button">
@@ -9,6 +10,5 @@
     <button *ngIf="!isLast" (click)="getPosts()" mat-raised-button color="warn" id="fetch-more">
         View more posts
     </button>
-    <br><br>
+    <br>
 </div>
-

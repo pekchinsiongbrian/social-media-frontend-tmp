@@ -13,6 +13,7 @@ export class PostfeedComponent implements OnInit {
   posts:PostData[] = [];
   pageNo:number = 0;
   isLast:boolean = false;
+  isEmpty:boolean = this.posts.length == 0;
 
   constructor(private dialog:MatDialog, private postsService:PostsService) { }
 

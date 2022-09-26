@@ -26,6 +26,10 @@ export class ManageusersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isSelf(id:number):boolean {
+    return this.userService.getUserId() == id;
+  }
+
   back() {
     this.mode = Mode.VIEWING;
     this.userToEdit = 0;
