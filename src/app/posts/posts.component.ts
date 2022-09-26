@@ -11,10 +11,15 @@ import { UserService } from '../services/user.service';
 export class PostsComponent implements OnInit {
   selectImageFile!:File|null;
   selectVideoFile!:File|null;
+  charCount:number = 0;
 
   constructor(private dialog:MatDialogRef<PostsComponent>, private postsService:PostsService, private userService:UserService) { }
 
   ngOnInit(): void {
+  }
+
+  updateCharCount(captionInput:HTMLTextAreaElement) {
+    this.charCount = captionInput.value.length;
   }
 
   onPhotoSelected(photoSelector:HTMLInputElement) {
@@ -65,13 +70,13 @@ export class PostsComponent implements OnInit {
       return;
     }
 
-    if (title.length > 30) {
-      alert("Title should be 30 characters or less");
+    if (title.length > 20) {
+      alert("Title should be 20 characters or less");
       return;
     }
 
-    if (caption.length > 100) {
-      alert("Caption should be 100 characters or less");
+    if (caption.length > 50) {
+      alert("Caption should be 50 characters or less");
       return;
     }
 

@@ -3,8 +3,9 @@
         <mat-card-title>Create Post</mat-card-title>
     </mat-card-header>
     <div id="title-and-caption">
-        <input #titleInput placeholder="Title" type="text">
-        <textarea #captionInput placeholder="Type caption text..."></textarea>
+        <input #titleInput placeholder="Title (max 20 chars)" type="text">
+        <textarea #captionInput (keyup)="updateCharCount(captionInput)" placeholder="Type caption text (max 50 chars)..."></textarea>
+        <label [ngStyle]="{'color': charCount > 50 ? 'red' : 'black'}">{{charCount}} / 50</label>
     </div>
     <div id="post-preview">
         <img *ngIf="selectImageFile != null" id="post-preview-img">
